@@ -10,14 +10,20 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 import './App.css'
 
+const BASE_URL = 'http://phanimurari.github.io/Final-Gh-Pages'
+
 const App = () => (
   <Switch>
-    <Route exact path="/login" component={LoginForm} />
-    <ProtectedRoute exact path="/" component={Home} />
-    <ProtectedRoute exact path="/products" component={Products} />
-    <ProtectedRoute exact path="/products/:id" component={ProductItemDetails} />
-    <ProtectedRoute exact path="/cart" component={Cart} />
-    <Route path="/not-found" component={NotFound} />
+    <Route exact path={`${BASE_URL}/login`} component={LoginForm} />
+    <ProtectedRoute exact path={`${BASE_URL}/`} component={Home} />
+    <ProtectedRoute exact path={`${BASE_URL}/products`} component={Products} />
+    <ProtectedRoute
+      exact
+      path={`${BASE_URL}/products/:id`}
+      component={ProductItemDetails}
+    />
+    <ProtectedRoute exact path={`${BASE_URL}/cart`} component={Cart} />
+    <Route path={`${BASE_URL}/not-found`} component={NotFound} />
     <Redirect to="not-found" />
   </Switch>
 )
